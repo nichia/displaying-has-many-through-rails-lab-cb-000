@@ -4,9 +4,7 @@
 
 <ul>
   <% @patients.each do |patient| %>
-    <li>
-      <%= link_to patient.name, patient_path(patient) %>
-      <%= patient.age %> years old, <%= patient.appointments.count %> <%= "appointment".pluralize(patient.appointments.count) %>
+    <li> Name: <%= link_to patient.name, patient_path(patient) %> Number of <%= "Appointment".pluralize(patient.appointments.count) %>: <%= patient.appointments.count %>
     </li>
   <% end %>
 </ul>

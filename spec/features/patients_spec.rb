@@ -37,7 +37,7 @@ describe "patients", type:  :feature do
       visit patients_path
       within("ul") do
         expect(page).to have_content("Name: Marge Simpson Number of Appointments: 2")
-        expect(page).to have_content("Name: Bart Simpson Number of Appointments: 1")
+        expect(page).to have_content("Name: Bart Simpson Number of Appointment: 1")
       end
     end
   end
