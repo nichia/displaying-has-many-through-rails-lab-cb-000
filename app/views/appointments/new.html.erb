@@ -1,2 +1,8 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<!-- # app/views/patients/new.html.erb -->
+
+<%= form_for @appointment do |f| %>
+  <%= f.datetime_select :appointment_datetime %>
+  <%= f.collection_select :doctor_id, Doctor.all, :id, :name %>
+  <%= f.collection_select :patient_id, Patient.all, :id, :name %>
+  <%= f.submit %>
+<% end %>

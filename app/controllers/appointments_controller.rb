@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      redirect_to appointment_path
+      redirect_to appointment_path(@appointment.id)
     else
       render :new
     end
@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to appointment_path
+      redirect_to appointment_path(@appointment.id)
     else
       render :edit
     end
@@ -30,13 +30,13 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_path
+    redirect_to root
   end
 
   private
 
   def appointment_params
-    params.require(:appointment).permit(:title, :release_year, :released, :genre, :artist_name)
+    params.require(:appointment).permit(:appointment_datetime, :doctor_id, :patient_id)
   end
 
   def set_appointment!
